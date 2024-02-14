@@ -159,8 +159,9 @@ public class Test_class {
         User user = new User("Tom","Stevens",0);
         User user2 = new User("Jon","Alberts",1);
         Book book = new Book(0,"Obiektowe pisanie w Java",5);
+        Book book2 = new Book(0,"Obiektowe pisanie w Java",5);
         ArrayList<Book> books = new ArrayList<>();
-        books.add(book);
+        books.add(book2);
         NormalUser user1 = new NormalUser(user,books,"18.06.2000");
         Librarian librarian = new Librarian(user2,true);
         Library library = new Library();

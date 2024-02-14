@@ -46,7 +46,7 @@ public class NormalUser extends User {
         because we check that in the method of Library class
          */
     }
-    public void returnBooks(int ammount,Book book, boolean wasCreated) throws Exception {
+    public void returnBooks(int ammount,Book book) throws Exception {
         boolean isBook = false;
         for(Book bookFromCollection : books){
             if(bookFromCollection.getId() == book.getId()){
@@ -57,15 +57,13 @@ public class NormalUser extends User {
         if(isBook == true){
             Book newBook = new Book(getBook(book.getId()).getId(),getBook(book.getId()).getTitle(),getBook(book.getId()).getAmmount());
             newBook.reduceAmmount(ammount);
-            if(wasCreated) {
-                newBook.reduceAmmount(ammount);
-            }
             removeBook(book.getId());
             addBook(newBook);
             /*
-            we reduce the ammount two times, because of how memory allocation works in Java
-            causing it to treat the book which we modified in Library to the same book
-            I know I should find a better fix for that, but I am unable to
+            The function won't work properly if we add the same element to the Library class instance
+            and the NormalUser, because it will locate the object in the same spot in memory, and it will
+            edit the properties of the object which is in NormalUser instance even though we edit it in
+            instance of Library class
              */
         }
         else{

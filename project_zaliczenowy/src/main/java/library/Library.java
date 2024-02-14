@@ -138,7 +138,7 @@ public class Library {
                         if(user.getID() == userId){
                             try {
                                 Book newBook = new Book(book.getId(),book.getTitle(),book.getAmmount());
-                                user.returnBooks(ammount, newBook,true);
+                                user.returnBooks(ammount, newBook);
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
@@ -155,7 +155,7 @@ public class Library {
                 if(user.getID() == userId){
                     try {
                         Book bookForUser = new Book(book.getId(),book.getTitle(),book.getAmmount());
-                        user.returnBooks(ammount, bookForUser,false);
+                        user.returnBooks(ammount, bookForUser);
                     }catch (Exception e){
                         throw new RuntimeException(e);
                     }
